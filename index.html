@@ -163,7 +163,7 @@
             height: 100%;
             top: 0;
             left: 0;
-            z-index: 0;
+            z-index: -1; /* Set z-index to -1 */
         }
 
         /* Add media queries for responsive design */
@@ -205,6 +205,23 @@
                 width: 150px;
             }
         }
+
+        .photo-container {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 1s ease-in-out forwards;
+            animation-delay: 1s;
+        }
+
+        .photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
     </style>
 </head>
 <body>
@@ -214,7 +231,7 @@
 
     <div class="container">
         <div class="name" id="nameContainer"></div>
-        <div class="roles">AI/ML Engineer | Data Scientist | Software Developer</div>
+        <div class="roles">AI/ML Enthusiast | Data Scientist | Software Developer</div>
         <div class="icons">
             <a href="https://github.com/PIYUSHPHUYAL" target="_blank" class="icon">
                 <i class="fab fa-github"></i>
