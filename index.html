@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Piyush Phuyal</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         /*body part*/
@@ -155,15 +157,64 @@
             100% { opacity: 0; }
         }
 
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+
+        /* Add media queries for responsive design */
+        @media (max-width: 750px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            .name {
+                font-size: 36px;
+            }
+
+            .roles {
+                font-size: 18px;
+            }
+
+            .icons {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .icon {
+                width: 40px;
+                height: 40px;
+                margin: 5px;
+            }
+
+            .character {
+                bottom: 448px;
+                left: 170px;
+                transform: translateX(-50%);
+                font-size: 24px;
+            }
+
+            .holagif {
+                bottom: 480px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 150px;
+            }
+        }
     </style>
 </head>
 <body>
 
     <img src="hola.gif" alt="Hola GIF" class="holagif">
+    <div class="character">Hola!</div>
 
     <div class="container">
         <div class="name" id="nameContainer"></div>
-        <div class="roles">ML Engineer | Data Scientist | Software Developer</div>
+        <div class="roles">AI/ML Engineer | Data Scientist | Software Developer</div>
         <div class="icons">
             <a href="https://github.com/PIYUSHPHUYAL" target="_blank" class="icon">
                 <i class="fab fa-github"></i>
@@ -175,8 +226,11 @@
                 <i class="fab fa-discord"></i>
             </a>
         </div>
+        <div id="particles-js"></div>
     </div>
     <div class="character">Hola!</div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
     <script>
         var nameContainer = document.getElementById('nameContainer');
@@ -193,5 +247,114 @@
 
         setTimeout(typeWriter, 2000); // Delay the typeWriter function by 2 seconds
     </script>
+
+    <script>
+        particlesJS('particles-js', {
+            particles: {
+                number: {
+                    value: 100,
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    }
+                },
+                color: {
+                    value: ['#FF6633', '#FFB399', '#FF8E80', '#FF7043', '#FF5722']
+                },
+                shape: {
+                    type: 'circle',
+                    stroke: {
+                        width: 0,
+                        color: '#000000'
+                    },
+                    polygon: {
+                        nb_sides: 5
+                    }
+                },
+                opacity: {
+                    value: 0.5,
+                    random: false,
+                    anim: {
+                        enable: false,
+                        speed: 1,
+                        opacity_min: 0.1,
+                        sync: false
+                    }
+                },
+                size: {
+                    value: 3,
+                    random: true,
+                    anim: {
+                        enable: false,
+                        speed: 40,
+                        size_min: 0.1,
+                        sync: false
+                    }
+                },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: '#ffffff',
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 6,
+                    direction: 'none',
+                    random: false,
+                    straight: false,
+                    out_mode: 'out',
+                    bounce: false,
+                    attract: {
+                        enable: false,
+                        rotateX: 600,
+                        rotateY: 1200
+                    }
+                }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: 'repulse'
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: 'push'
+                    },
+                    resize: true
+                },
+                modes: {
+                    grab: {
+                        distance: 400,
+                        line_linked: {
+                            opacity: 1
+                        }
+                    },
+                    bubble: {
+                        distance: 400,
+                        size: 40,
+                        duration: 2,
+                        opacity: 8,
+                        speed: 3
+                    },
+                    repulse: {
+                        distance: 200,
+                        duration: 0.4
+                    },
+                    push: {
+                        particles_nb: 4
+                    },
+                    remove: {
+                        particles_nb: 2
+                    }
+                }
+            },
+            retina_detect: true
+        });
+    </script>
+
 </body>
 </html>
